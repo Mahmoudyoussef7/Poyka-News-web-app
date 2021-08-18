@@ -1,0 +1,33 @@
+﻿@model List<ContactUS>
+@{
+    ViewData["Title"] = "Messages";
+}
+
+<section id="testimonials" class="testimonials">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>أراء المستخدمين</h2>
+        </div>
+        <center>
+            @foreach (var item in Model)
+            {
+                <div class="col-7" data-swiper-slide-index="4" role="group" aria-label="1 / 7"  margin-right: 20px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            @item.Message
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="~/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                        <h3>@item.Name</h3>
+                        <h4>@item.Email</h4>
+                    </div>
+                </div>
+            }
+        </center>
+    </div>
+   
+
+</section>
+

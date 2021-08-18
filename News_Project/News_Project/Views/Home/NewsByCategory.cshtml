@@ -1,0 +1,39 @@
+﻿@model List<News>
+@{
+    ViewData["Title"] = "NewsByCategory";
+}
+
+
+<section id="about" class="about">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>أخبار القسم @ViewBag.cat.Name</h2>
+        </div>
+        <center>
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-12 aos-init aos-animate" data-aos="fade-right">
+                        <img src="~/assets/img/about.jpg" style="height:200px;width:200px;border-radius:50%" alt="">
+                    </div>
+                    <div class="col-sm-12 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+                        <h3>@item.Title</h3>
+                        <h5>@item.Date</h5>
+                        <p class="fst-italic">
+                            @item.Topic
+                        </p>
+                    </div>
+                </div>
+                <br />
+                <center>
+                    <a asp-action="DeleteNews" asp-controller="Home" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </center>
+                    <hr />
+            }
+        </center>
+
+    </div>
+</section>
+
+
